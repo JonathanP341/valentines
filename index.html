@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="battle-container">
+        <!-- Enemy Pokemon (You) -->
+        <div class="enemy-pokemon-container">
+            <div class="enemy-speech-bubble" id="enemySpeech">
+                <p id="enemyText">Will you be my valentine!?!?</p>
+            </div>
+            <img src="bear.png" alt="Bear" class="enemy-pokemon" id="enemyPokemon">
+        </div>
+
+        <!-- Player Pokemon (Her) -->
+        <div class="player-pokemon-container" id="playerContainer">
+            <div class="player-options" id="playerOptions">
+                <button class="speech-bubble-btn" id="yesBtn">Yes</button>
+                <button class="speech-bubble-btn no-btn" id="noBtn"><span>No</span></button>
+            </div>
+            <img src="miffy.png" alt="Miffy" class="player-pokemon" id="playerPokemon">
+        </div>
+
+        <!-- Success State (Hidden initially) -->
+        <div class="success-container" id="successContainer" style="display: none;">
+            <div class="image-gallery" id="imageGallery">
+                <!-- Images will be inserted here by JavaScript -->
+            </div>
+            <h2 class="valentines-message">HAPPY VALENTINES DAY VICTORIA</h2>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

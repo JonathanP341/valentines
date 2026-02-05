@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffb7dd;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.battle-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    gap: 20px;
+}
+
+/* Enemy Pokemon (Top) */
+.enemy-pokemon-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 4;
+}
+
+.enemy-pokemon {
+    width: 200px;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.enemy-speech-bubble {
+    background-image: url('speech_bubble.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 450px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 30px;
+    position: relative;
+}
+
+.enemy-speech-bubble p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    z-index: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    line-height: 1.3;
+    white-space: pre-line;
+    margin-top: -2rem;
+}
+
+/* Player Pokemon (Bottom) */
+.player-pokemon-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.player-pokemon {
+    width: 200px;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.player-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.speech-bubble-btn {
+    background-image: url('speech_bubble.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    width: 180px;
+    height: 120px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding-top: 12px;    
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.speech-bubble-btn:hover {
+    transform: scale(1.1);
+}
+
+.speech-bubble-btn:active {
+    transform: scale(0.95);
+}
+
+.speech-bubble-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.speech-bubble-btn.no-btn {
+    transform: scaleX(-1);
+}
+
+.speech-bubble-btn.no-btn span {
+    display: inline-block;
+    transform: scaleX(-1);
+}
+
+.speech-bubble-btn.no-btn:hover {
+    transform: scaleX(-1) scale(1.1);
+}
+
+.speech-bubble-btn.no-btn:hover span {
+    transform: scaleX(-1);
+}
+
+.speech-bubble-btn.no-btn:active {
+    transform: scaleX(-1) scale(0.95);
+}
+
+.speech-bubble-btn.no-btn:active span {
+    transform: scaleX(-1);
+}
+
+/* Success State */
+.success-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    z-index: 3;
+}
+
+.success-message {
+    font-size: 36px;
+    color: #d81b60;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+.image-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.gallery-image {
+    max-width: 600px;
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-arrow {
+    width: 50px;
+    height: auto;
+    transform: rotate(0deg);
+}
+
+.valentines-message {
+    font-size: 36px;
+    color: #d81b60;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.enemy-pokemon.happy {
+    width: 250px; /* 1.25x larger than the original 200px */
+    max-width: 100%; /* Prevents it from overflowing on small screens */
+    transition: width 0.3s ease; /* Optional: adds a smooth grow effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .battle-container {
+        gap: 50px;
+    }
+    
+    .enemy-pokemon,
+    .player-pokemon {
+        width: 225px;
+    }
+    
+    .enemy-speech-bubble {
+        width: 320px;
+        height: 150px;
+        padding: 20px;
+    }
+    
+    .enemy-speech-bubble p {
+        font-size: 18px;
+        margin-top: -1.5rem;
+    }
+    
+    .speech-bubble-btn {
+        width: 140px;
+        height: 100px;
+        font-size: 20px;
+    }
+    
+    .success-container {
+        padding-top: 350px;
+    }
+    
+    .success-message {
+        font-size: 24px;
+    }
+    
+    .valentines-message {
+        font-size: 24px;
+        padding: 0 20px;
+    }
+}
